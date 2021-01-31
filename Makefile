@@ -22,7 +22,7 @@ clean-image:
 
 # Clean the container and the image
 clean:
-	$(CC) stop $(DEV_CONTAINER)
+	-$(CC) stop $(DEV_CONTAINER)
 	$(CC) rm $(DEV_CONTAINER)
 
 # Start the server in the container
@@ -36,8 +36,8 @@ test:
 		--build-arg SSH_PRIVATE_KEY="${SSH_PRIVATE_KEY}" \
 		--build-arg SSH_PUBLIC_KEY="${SSH_PUBLIC_KEY}" \
 		-t $(IMAGE_TEST_NAME) .
-	@$(CC) run -d -it --name=$(TEST_CONTAINER) -dp 3000:3000 $(IMAGE_TEST_NAME)
-	@$(CC) exec $(TEST_CONTAINER) $(TEST_CMD)
-	@$(CC) stop $(TEST_CONTAINER)
-	@$(CC) rm $(TEST_CONTAINER)
+	$(CC) run -d -it --name=$(TEST_CONTAINER) -dp 3000:3000 $(IMAGE_TEST_NAME)
+	-$(CC) exec $(TEST_CONTAINER) $(TEST_CMD)
+	$(CC) stop $(TEST_CONTAINER)
+	$(CC) rm $(TEST_CONTAINER)
 	$(CC) rmi $(IMAGE_TEST_NAME)
