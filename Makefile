@@ -5,8 +5,8 @@ IMAGE_NAME=medtech
 DEV_CONTAINER=medtech-dev
 TEST_CONTAINER=medtech-test
 
-SSH_PRIVATE_KEY=`sudo cat /home/calin/.ssh/id_rsa`
-SSH_PUBLIC_KEY=`sudo cat /home/calin/.ssh/id_rsa.pub`
+SSH_PRIVATE_KEY=`cat /home/calin/.ssh/id_rsa`
+SSH_PUBLIC_KEY=`cat /home/calin/.ssh/id_rsa.pub`
 
 # Build docker image
 build_image: Dockerfile
