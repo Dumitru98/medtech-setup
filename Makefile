@@ -7,7 +7,6 @@ TEST_CONTAINER=medtech-test
 
 SSH_PRIVATE_KEY=`cat ~/.ssh/id_rsa`
 SSH_PUBLIC_KEY=`cat ~/.ssh/id_rsa.pub`
-OTHER_KEYS=./keys
 
 # Build docker image
 build_image: Dockerfile
